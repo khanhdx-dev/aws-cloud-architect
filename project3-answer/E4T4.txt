@@ -1,0 +1,12 @@
+
+# What additional architectural change can be made to reduce the internet facing attack surface of the web application instance.
+We can setup a firewalls (WAF) between a client and an application to block suspicious traffic.
+
+# Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
+No, as any user or service within the VPC is able to access any Amazon S3 resource thanks to the gateway endpoint's default policy.
+
+# Will applying default encryption setting to the s3 buckets encrypt the data that already exists?
+Default encryption is enabled, however existing objects in the bucket retain their original encryption. Once default encryption is enabled, the encryption you choose only applies to upcoming uploads.
+
+# What would happen if the original cloud formation templates are applied to this environment.
+All of the config we made to the initial cloudformation configuration directly through the AWS console would be undone.

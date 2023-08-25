@@ -1,0 +1,46 @@
+[ec2-user@ip-10-1-11-18 ~]$ mysql -h primay-database-instance.c2nuhgpq71f1.us-east-1.rds.amazonaws.com -u admin -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 261
+Server version: 8.0.33 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> CREATE DATABASE Udacity;
+Query OK, 1 row affected (0.028 sec)
+
+MySQL [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| udacity            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.001 sec)
+
+MySQL [(none)]> use udacity;
+Database changed
+MySQL [udacity]> CREATE TABLE Persons (
+    ->     PersonID int,
+    ->     LastName varchar(255),
+    ->     FirstName varchar(255),
+    ->     Address varchar(255),
+    ->     City varchar(255)
+    -> );
+Query OK, 0 rows affected (0.113 sec)
+
+MySQL [udacity]> INSERT INTO Persons(PersonID, LastName, FirstName, Address, City) VALUES(1, 'Khanh', 'Dang', 'Hanoi', 'Vn');
+Query OK, 1 row affected (0.009 sec)
+
+MySQL [udacity]> SELECT * FROM Persons;
++----------+----------+-----------+---------+------+
+| PersonID | LastName | FirstName | Address | City |
++----------+----------+-----------+---------+------+
+|        1 | Khanh    | Dang      | Hanoi   | Vn   |
++----------+----------+-----------+---------+------+
+1 row in set (0.001 sec)

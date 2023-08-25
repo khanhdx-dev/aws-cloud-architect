@@ -1,0 +1,9 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+# Poor practice 1
+The EC2 instances is connecting to s3 throw a Gateway, which is not a secure way because the communication will go outside (the internet).
+Instead, we can create internal communications between EC2 and s3.
+
+# Poor practice 2
+In c3-app.yml file, there is a policy to access s3 bucket, this policy has '*' character, which violated the Principle of the least privilege.
+Instead of using '*', we can provide the resource and action detail for the policy.

